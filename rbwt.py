@@ -37,8 +37,8 @@ def reverseBwt(bw):
 
 # st = time.time()
 
-# file = open("string-transformed.txt",'r')
-# bw = file.read()
+file = open("string-transformed.txt",'r')
+bw = file.read()
 
 # print("\nBWT(T) + ranking: ")
 # print("======================")
@@ -58,7 +58,7 @@ def reverseBwt(bw):
 # et = time.time()
 # elapsed_time = et - st
 
-# file = open("string-reversed.txt",'w')
-# file.write(reverseBwt(bw))
+file = open("string-reversed.txt",'w')
+file.write(reverseBwt(bw))
 
 # print('\nExecution time:', elapsed_time, 'seconds')
