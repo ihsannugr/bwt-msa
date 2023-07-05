@@ -10,4 +10,4 @@ def genseq(n):
     file.write("$")
     file.close()
 
-genseq(20)
+genseq(50)

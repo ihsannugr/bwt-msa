@@ -40,23 +40,25 @@ def find_exact(q, r, t, sa, fi, bi):
         else:
             for i in fi[f]:
                 print(f+str(ind), ">>>>>")
+                rowbwt = ind
                 leng = len(q)-1
                 for j in q[1:]:
                     leng -= 1
                     rowfc = bi[f][rowbwt]
-                    if rowfc not in fi[j]:
+                    if j not in fi or rowfc not in fi[j]:
                         print("UNMATCHED")
-                        rowbwt += 1
                         break
                     else:
                         print("MATCHED:", j)
+                        rowbwt = fi[j].index(rowfc)
                         f = j
                         if leng == 0:
                             loc.append(sa[i])
-                            rowbwt += 1
                 ind += 1
                 f = q[0]
-            print("\nMatched location(s):", loc)
+            print("\n============================")
+            print("Matched location(s):", loc)
+            print("============================\n")
     else: print("There is no match found")
 
 # read BWT(T)    
@@ -84,9 +86,7 @@ print("FC Index: ", fc_index)
 
 # building dictionary of character against its position in FC
 bwt_index = build_bwt_index(ref)
-# bwt_ranks = rbwt.rankBwt(ref)[0]
 print("BWT Index: ", bwt_index)
-# print("BWT Ranks: ", bwt_ranks)
 
 print("\nEXACT-MATCH SEARCHING")
 print("=====================")
